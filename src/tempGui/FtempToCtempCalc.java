@@ -9,11 +9,11 @@ package tempGui;
  *
  * @author Nick
  */
-public class Calculation {
+public class FtempToCtempCalc {
     public static String calcToC(String input){
         String in = input;
         int inputTemp = Integer.parseInt(in);
-        int convertedToC = (inputTemp-32)*5/9;
-        return convertedToC+"";
+        int converted = (inputTemp-32)*5/9;
+        return converted+" C";
     }
 }

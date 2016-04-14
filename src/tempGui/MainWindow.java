@@ -6,6 +6,9 @@
 package tempGui;
 
 import firstgui.*;
+import java.util.Enumeration;
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
 
 /**
  *
@@ -29,26 +32,29 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bgConvert = new javax.swing.ButtonGroup();
         output = new javax.swing.JLabel();
         name = new javax.swing.JLabel();
         input = new javax.swing.JTextField();
-        converttoCbtn = new javax.swing.JButton();
+        btnConvert = new javax.swing.JButton();
         quit = new javax.swing.JButton();
-        F = new javax.swing.JLabel();
-        C = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        fToC = new javax.swing.JRadioButton();
+        cToF = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         output.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        output.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        output.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        output.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         name.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        name.setText("Enter Temperature in Fahrenheit");
+        name.setText("Enter Temperature");
 
-        converttoCbtn.setText("Convert to Celcius");
-        converttoCbtn.addActionListener(new java.awt.event.ActionListener() {
+        btnConvert.setText("Convert");
+        btnConvert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                converttoCbtnActionPerformed(evt);
+                btnConvertActionPerformed(evt);
             }
         });
 
@@ -59,74 +65,121 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        F.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        F.setText("F");
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Conversion Type\n"));
 
-        C.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        C.setText("C");
+        bgConvert.add(fToC);
+        fToC.setSelected(true);
+        fToC.setText("Fahrenheit to Celcius");
+
+        bgConvert.add(cToF);
+        cToF.setText("Celsius to Fahrenheit");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(fToC)
+                    .addComponent(cToF))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(fToC)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cToF)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(converttoCbtn)
-                            .addComponent(name))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(quit)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnConvert))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(F))
+                        .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(C))
-                    .addComponent(quit))
-                .addContainerGap(38, Short.MAX_VALUE))
+                        .addComponent(name)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(F))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(converttoCbtn)
+                    .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(C)
-                    .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(quit)
-                .addGap(19, 19, 19))
+                    .addComponent(btnConvert)
+                    .addComponent(quit))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void converttoCbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_converttoCbtnActionPerformed
+    private void btnConvertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConvertActionPerformed
         // TODO add your handling code here:
-        output.setText(Calculation.calcToC(input.getText()));
-    }//GEN-LAST:event_converttoCbtnActionPerformed
+        String selected = getSelectedButtonText(bgConvert);
+        String in = input.getText();
+        output.setText(selected);
+        if(selected == fToC.getText()){
+        output.setText(FtempToCtempCalc.calcToC(in));
+        }else if(selected == cToF.getText()){
+        output.setText(CtempToFtempCalc.calcToC(in));
+        }
+        
+        
+    }//GEN-LAST:event_btnConvertActionPerformed
 
     private void quitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitActionPerformed
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_quitActionPerformed
 
-
+private String getSelectedButtonText(ButtonGroup buttonGroup) {
+        String text = null;
+        
+        for(Enumeration<AbstractButton>buttons = buttonGroup.getElements(); buttons.hasMoreElements();) {
+            AbstractButton button = buttons.nextElement();
+            if(button.isSelected()) {
+                text = button.getText();
+                break;
+            }
+        }
+        return text;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel C;
-    private javax.swing.JLabel F;
-    private javax.swing.JButton converttoCbtn;
+    private javax.swing.ButtonGroup bgConvert;
+    private javax.swing.JButton btnConvert;
+    private javax.swing.JRadioButton cToF;
+    private javax.swing.JRadioButton fToC;
     private javax.swing.JTextField input;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel name;
     private javax.swing.JLabel output;
     private javax.swing.JButton quit;
