@@ -9,8 +9,10 @@ package tempGui;
  *
  * @author Nick
  */
-public class CtempToFtempCalc {
-    public static String calcToC(String input){
+public class CtempToFtempCalc implements TempCalc {
+
+    @Override
+    public String calc(String input){
         String in = input;
         int inputTemp = Integer.parseInt(in);
         int converted = inputTemp*9/5 + 32;

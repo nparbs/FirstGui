@@ -15,7 +15,10 @@ import javax.swing.ButtonGroup;
  * @author nparbs
  */
 public class MainWindow extends javax.swing.JFrame {
-
+    
+        TempCalc fToCCalc = new FtempToCtempCalc();
+        TempCalc cToFCalc = new CtempToFtempCalc();
+    
     /**
      * Creates new form MainWindow
      */
@@ -146,10 +149,10 @@ public class MainWindow extends javax.swing.JFrame {
         String selected = getSelectedButtonText(bgConvert);
         String in = input.getText();
         output.setText(selected);
-        if(selected == fToC.getText()){
-        output.setText(FtempToCtempCalc.calcToC(in));
-        }else if(selected == cToF.getText()){
-        output.setText(CtempToFtempCalc.calcToC(in));
+        if(selected.equals(fToC.getText())){
+        output.setText(fToCCalc.calc(in));
+        }else if(selected.equals(cToF.getText())){
+        output.setText(cToFCalc.calc(in));
         }
         
         

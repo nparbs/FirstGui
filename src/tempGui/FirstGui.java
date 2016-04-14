@@ -39,6 +39,8 @@ public class FirstGui {
         }
         //</editor-fold>
 
+        TempCalc fToCCalc = new FtempToCtempCalc();
+        TempCalc cToFCalc = new CtempToFtempCalc();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
